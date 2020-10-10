@@ -20,7 +20,7 @@ with open(budget_csv) as csv_file:
     total_revenue = 0
     total_month = 0
     previous_revenue = 0
-    profit_loss = 0
+    monthly_profit_loss = 0
 
     # loop to calculate count of months, net total of profit loss 
     # and collect data for lists
@@ -32,28 +32,32 @@ with open(budget_csv) as csv_file:
         else:
              Profit_month = int(row[1]) - previous_revenue
              profit_Monthly = str(row[0])
+             monthly_profit_loss += Profit_month
              
             # test to see if lists are populated
-            #  print(f'{profit_Monthly}')
-            #  print(f'{Profit_month}')
-
-    total_month = total_month + 1
-    total_revenue += int(row[1])
-   
-    # Code tests
-    # print(f'{total_month}')
-    # print(f'{total_revenue}')
+            # print(f'{profit_Monthly}')
+            # print(f'{Profit_month}')
+    # test 
+    # print(f'{monthly_profit_loss}')
     
+        total_month = total_month + 1
+        total_revenue += int(row[1])
+          
 
 #average of the changes in "Profit/loss
+    length =  total_month
+    #print(length)
+    average_change = monthly_profit_loss/length
+    #print(average_change)
+
 #greatest increase in profits (date and amount)
 #greatest decrease in losses (date and amount
-
-    def budget_description(budget_data):
-        Profit_month = []
-        profit_Monthly = []
+    
 
 
+# Code tests
+    print(f'{total_month}')
+    #print(f'{total_revenue}')
 
 
 
