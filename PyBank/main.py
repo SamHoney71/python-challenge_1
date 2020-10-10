@@ -28,18 +28,22 @@ with open(budget_csv) as csv_file:
   
         if(previous_revenue == 0):
             previous_revenue = int(row[1])
+            
         else:
              Profit_month = int(row[1]) - previous_revenue
              profit_Monthly = str(row[0])
-    
+             
+            # test to see if lists are populated
+            #  print(f'{profit_Monthly}')
+            #  print(f'{Profit_month}')
+
     total_month = total_month + 1
     total_revenue += int(row[1])
    
     # Code tests
     # print(f'{total_month}')
     # print(f'{total_revenue}')
-    # print(f'{Profit_month}')
-    # print(f'{profit_Monthly}')
+    
 
 #average of the changes in "Profit/loss
 #greatest increase in profits (date and amount)
