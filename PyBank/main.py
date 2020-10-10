@@ -1,5 +1,7 @@
 #PyBank Homework Assignment - two columns - Date & Profit/Loss
 
+import numpy as np
+
 #Read budget_data.csv file
 import os
 import csv
@@ -21,6 +23,7 @@ with open(budget_csv) as csv_file:
     total_month = 0
     previous_revenue = 0
     monthly_profit_loss = 0
+    #max_profit = 0 #get max by comparing while in loop
 
     # loop to calculate count of months, net total of profit loss 
     # and collect data for lists
@@ -45,22 +48,23 @@ with open(budget_csv) as csv_file:
           
 
 #average of the changes in "Profit/loss
-    length =  total_month - 1
-    print(length)
-    average_change = monthly_profit_loss/length
-    print(average_change)
+    # length =  total_month - 1
+    # print(length)
+    # average_change = monthly_profit_loss/length
+    # print(average_change)
 
 #greatest increase in profits (date and amount)
+
 #greatest decrease in losses (date and amount
-# min_monthly = min(profit_Monthly)
-# print(min_monthly)
-# max_monthly = max(profit_Monthly)
-# print(max_monthly)
+    min_monthly = min(profit_Monthly)
+    print(min_monthly)
+    max_monthly = max(profit_Monthly)
+    print(max_monthly)
 
 
 # Code tests
-    print(f'{total_month}')
-    print(f'{total_revenue}')
+    # print(f'{total_month}')
+    # print(f'{total_revenue}')
 
 
 
