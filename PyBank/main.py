@@ -4,79 +4,51 @@
 import os
 import csv
 
-
 # Path to collect data from the Resoures folder
+ 
 budget_csv = os.path.join(".","Resources","budget_data.csv")
+ 
+with open(budget_csv) as csv_file:
+    csvreader = csv.reader(csv_file, delimiter=",")
 
-# Define the function and have it accept the "Budget Data" as its sole parameter
-def print_analysis(budget_data):
-    date = str(budget_data[0])
-    revenue = int(budget_data[0]
+    # set list to collect month over month profit & loss & month   
+    Profit_month = []
+    profit_Monthly = []
 
-# Calculate total number of months
-    total_months = len(date)
+    # skip first header & set foundation
+    row = next(csvreader, None)
+    total_revenue = 0
+    total_month = 0
+    previous_revenue = 0
+    profit_loss = 0
 
-print(f"Total Months equals {total_months}")
-
-
-# with open(budget_csv) as csv_file:
-#     csv_reader=csv.reader(csv_file, delimiter=",")
+    # loop to calculate count of months, net total of profit loss 
+    # and collect data for lists
+    for row in csvreader:
+  
+        if(previous_revenue == 0):
+            previous_revenue = int(row[1])
+        else:
+             Profit_month = int(row[1]) - previous_revenue
+             profit_Monthly = str(row[0])
+    
+    total_month = total_month + 1
+    total_revenue += int(row[1])
    
-#     csv_header = next(csv_file)
-#     print(f"Header: {csv_header}")
-
-    # for row in csv_reader:
-    #     print(row)
-
-# # total months
-#     total_months = len(date)
-#     print(f"int({total_months})")
-
-
-# Reading using CSV module
-# with open('budget_data.csv', ) as csvfile:
-#     budgetreader = csv.reader(budget_data.csv, delimiter = ",")
-#     for row in budgetreader:
-#         print(','.join(row))
-
-
-
-# with open(budget_csv) as csvfile:
-#     csvbudget = csv.reader(budget_csv, delimiter=',')
-#     print(csvbudget)
-
-
-
-
-# with open(budget_csv) as csvfile:
-#     csvbudget = csv.reader(budget_data, delimiter=',')
-#     budgetheader = next(cvsbudget)
-#     print(f"Budget Header: {budgetheader}")
-
-#     for row in csvbudget:
-#         print(row)
-
-# print(str(budget_csv[1]))
-#     # Define the function and have it accept the budget_data as its sole parameter
-# def print_budget_calculations(budget_csv):
-#     # For readability, assign values
-#     date = str(budget_data[0])
-#     profit_loss = double(budget_data[1])
-         
-#     print(date)
-
-
-
-
-#net total ammount of "Profit/Loss"
+    # Code tests
+    # print(f'{total_month}')
+    # print(f'{total_revenue}')
+    # print(f'{Profit_month}')
+    # print(f'{profit_Monthly}')
 
 #average of the changes in "Profit/loss
-
-
 #greatest increase in profits (date and amount)
-
-
 #greatest decrease in losses (date and amount
+
+    def budget_description(budget_data):
+        Profit_month = []
+        profit_Monthly = []
+
 
 
 
