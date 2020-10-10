@@ -45,19 +45,22 @@ with open(budget_csv) as csv_file:
           
 
 #average of the changes in "Profit/loss
-    length =  total_month
-    #print(length)
+    length =  total_month - 1
+    print(length)
     average_change = monthly_profit_loss/length
-    #print(average_change)
+    print(average_change)
 
 #greatest increase in profits (date and amount)
 #greatest decrease in losses (date and amount
-    
+# min_monthly = min(profit_Monthly)
+# print(min_monthly)
+# max_monthly = max(profit_Monthly)
+# print(max_monthly)
 
 
 # Code tests
     print(f'{total_month}')
-    #print(f'{total_revenue}')
+    print(f'{total_revenue}')
 
 
 
