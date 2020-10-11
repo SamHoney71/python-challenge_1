@@ -10,32 +10,39 @@ import csv
  
 budget_csv = os.path.join(".","Resources","budget_data.csv")
  
+# set list to collect month over month profit & loss & month   
+Profit_month = [] #dollars
+profit_Monthly = []  #MMYY
+total_revenue = 0
+total_month = 0
+previous_revenue = 0
+monthly_profit_loss = 0
+current_revenue = 0
+count = 0
+
+# acknowledge Ganzalo Reusch for help with below
 with open(budget_csv) as csv_file:
     csvreader = csv.reader(csv_file, delimiter=",")
-
-    # set list to collect month over month profit & loss & month   
-    Profit_month = []
-    profit_Monthly = []
-
-    # skip first header & set foundation
+    
     row = next(csvreader, None)
-    total_revenue = 0
-    total_month = 0
-    previous_revenue = 0
-    monthly_profit_loss = 0
-    #max_profit = 0 #get max by comparing while in loop
 
-    # loop to calculate count of months, net total of profit loss 
-    # and collect data for lists
-    for row in csvreader:
-  
-        if(previous_revenue == 0):
-            previous_revenue = int(row[1])
-            
-        else:
-             Profit_month = int(row[1]) - previous_revenue
-             profit_Monthly = str(row[0])
-             monthly_profit_loss += Profit_month
+    for row in csvreader:           
+        profit_Monthly = str(row[0])
+        count = count + 1
+        current_revenue = int(row[1])
+        total_revenue = total_revenue + previous_revenue
+        if count > 1:
+            monthly_profit_loss = current_revenue - previous_revenue
+            Profit_month.append(monthly_profit_loss)
+        previous_revenue = current_revenue
+        
+   
+    print(f'{count}')
+    print(f'{total_revenue}')   
+
+           
+            # print(Profit_month)
+            # profit_Monthly = str(row[0])
              
             # test to see if lists are populated
             # print(f'{profit_Monthly}')
@@ -43,9 +50,10 @@ with open(budget_csv) as csv_file:
     # test 
     # print(f'{monthly_profit_loss}')
     
-        total_month = total_month + 1
-        total_revenue += int(row[1])
-          
+            # total_month = total_month + 1
+            # total_revenue += int(row[1])
+
+
 
 #average of the changes in "Profit/loss
     # length =  total_month - 1
@@ -56,15 +64,14 @@ with open(budget_csv) as csv_file:
 #greatest increase in profits (date and amount)
 
 #greatest decrease in losses (date and amount
-    min_monthly = min(profit_Monthly)
-    print(min_monthly)
-    max_monthly = max(profit_Monthly)
-    print(max_monthly)
+    # min_monthly = min(profit_Monthly)
+    # print(min_monthly)
+    # max_monthly = max(profit_Monthly)
+    # print(max_monthly)
 
 
 # Code tests
-    # print(f'{total_month}')
-    # print(f'{total_revenue}')
+
 
 
 
